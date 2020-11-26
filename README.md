@@ -1,5 +1,5 @@
-#PR CRM
-<h2>The problem:<\h2>
+# PR CRM
+<h2>The problem:</h2>
 Millions of media consultants, spokespersons and PR and content managers around the world are required as part of their day-to-day work to be in constant contact with journalists, bloggers and influencers.
 The speakers are people with unique needs who usually need at very short notice to follow current developments in the media and social networks and immediately then define and convey messages and content to journalists, bloggers and influencers (hereinafter JBIs), in order to benefit the person or organization he represents. This is so that they will take part in trying to shape public opinion, create a positive image and contribute to its goals.
 One of the main goals of the speaker is to compete for the attention of JBIs with quality and accessible content that could probably be in order for them to publish the content or take part in the initiative proposed by the speaker, with JBIs usually receiving many dozens every day. Media activity suggestions.
