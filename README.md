@@ -1,18 +1,19 @@
 # PR CRM
 <h2><i>The problem:</i></h2>
-Millions of media consultants, spokespersons and PR and content managers around the world are required as part of their day-to-day work to be in constant contact with journalists, bloggers and influencers.
-The speakers are people with unique needs who usually need at very short notice to follow current developments in the media and social networks and immediately then define and convey messages and content to journalists, bloggers and influencers (hereinafter JBIs), in order to benefit the person or organization he represents. This is so that they will take part in trying to shape public opinion, create a positive image and contribute to its goals.
-One of the main goals of the speaker is to compete for the attention of JBIs with quality and accessible content that could probably be in order for them to publish the content or take part in the initiative proposed by the speaker, with JBIs usually receiving many dozens every day. Media activity suggestions.
-These proposals, which in many cases "disappear" and are not read by JBIs, include almost regular content, including offers for interviews and articles, press releases, transmission of information with sensitive and confidential content, invitations to events and press conferences, suggestions for use and so on.
-Therefore, there is a need for a CRM system that will provide a unique solution for marketing managers and PR that will provide a solution for the entire media activity.
+Millions of media consultants, spokespersons and PR and content managers around the world are required as part of their day-to-day work to be in constant contact with journalists, bloggers and influencers.</br>
+The speakers are people with unique needs who usually need at very short notice to follow current developments in the media and social networks and immediately then define and convey messages and content to journalists, bloggers and influencers (hereinafter JBIs), in order to benefit the person or organization he represents. This is so that they will take part in trying to shape public opinion, create a positive image and contribute to its goals.</br>
+One of the main goals of the speaker is to compete for the attention of JBIs with quality and accessible content that could probably be in order for them to publish the content or take part in the initiative proposed by the speaker, with JBIs usually receiving many dozens every day. Media activity suggestions.</br>
+These proposals, which in many cases "disappear" and are not read by JBIs, include almost regular content, including offers for interviews and articles, press releases, transmission of information with sensitive and confidential content, invitations to events and press conferences, suggestions for use and so on.</br>
+Therefore, there is a need for a CRM system that will provide a unique solution for marketing managers and PR that will provide a solution for the entire media activity.</br>
 Thus, the main challenges of the speakers and JBIs to which the current answer given is few:
-• Speakers do not have enough time to receive information about current events that they miss the windows for the opportunity to respond and take part in communication activities.
-• Speakers do not have real tools for butterfly and do not have a track of which press releases were opened, which were read, which were clicked on for more information and so on.
-• Press releases / suggestions for coverage / invitations to press conferences, etc. make accessible and require effort and work from JBIs. For example, approval to attend the press conference requires contacting the speaker, registering with him and not a minister that the speaker received the referral.
-• Many messages are sent to journalists in bulk without personalization
-• Speakers do not have a track record of contacting reporters
-• After the speaker offers an exclusive offer to the reporter, he independently turns to another reporter. This server cannot be simplified or streamlined by having the market automatically forward the exclusive offer to another reporter on the speaker's list.
-• Press releases are outdated and mostly transcribed when unable to produce press releases on video or audio - by selling the item through self-portrait or recording in a way that is faster and easier.
+• Speakers do not have enough time to receive information about current events that they miss the windows for the opportunity to respond and take part in communication activities.</br>
+• Speakers do not have real tools for butterfly and do not have a track of which press releases were opened, which were read, which were clicked on for more information and so on.</br>
+• Press releases / suggestions for coverage / invitations to press conferences, etc. make accessible and require effort and work from JBIs. For example, approval to attend the press conference requires contacting the speaker, registering with him and not a minister that the speaker received the referral.</br>
+<ul>
+<li>Many messages are sent to journalists in bulk without personalization</li>
+<li>Speakers do not have a track record of contacting reporters</li>
+<li>After the speaker offers an exclusive offer to the reporter, he independently turns to another reporter. This server cannot be simplified or streamlined by having the market automatically forward the exclusive offer to another reporter on the speaker's list.</li>
+<li>Press releases are outdated and mostly transcribed when unable to produce press releases on video or audio - by selling the item through self-portrait or recording in a way that is faster and easier.</li></ul>
 
 <h2><i>The solution:</i></h2>
 Need to do, we have a clear need to build a CRM system that will serve as a home for the needs of speakers and media consultants and make the day-to-day work automated.
