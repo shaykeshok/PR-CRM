@@ -22,32 +22,43 @@ Help the PR persons to manage and track there information and interaction with t
 
 <h2><i>What will be included in the project:</i></h2>
 <ul>
-<li>•	Information tracking</li>
-<li>•	Sending design and simple content to BJIs</li>
-<li>•	Schedule tasks with presets</li>
-<li>•	Upload audio, video, files like: jpeg, pdf, word</li>
-<li>•	Record video/audio from the application</li>
-<li>•	Print reports in various sections including graphs</li>
+<li>Information tracking</li>
+<li>Sending design and simple content to BJIs</li>
+<li>Schedule tasks with presets</li>
+<li>Upload audio, video, files like: jpeg, pdf, word</li>
+<li>Record video/audio from the application</li>
+<li>Print reports in various sections including graphs</li>
   </ul>
+  
 <h2><i>What will be excluded in the project:</i></h2>
-•	Analysis of recurring emails from BJIs
-•	Video and audio editing are uploaded to the app
+<ul>
+<li>Analysis of recurring emails from BJIs</li>
+<li>Video and audio editing are uploaded to the app</li>
+  </ul>
+  
 <h2><i>Mandatory functions:</i></h2>
-•	Active application 24/7 and Availability from anywhere  (responsive web)
-•	Upload files like: audio, video, word
-•	Send design and personalize emails
-•	Track after the answers from the email sends
-•	Define a chain of tasks according to the response / non-response of JBIs
-•	The system should be written in English but know how to send messages in Hebrew as well
-•	Managing employee permissions in the software
+<ul>
+<li>Active application 24/7 and Availability from anywhere  (responsive web)</li>
+<li>Upload files like: audio, video, word</li>
+<li>Send design and personalize emails</li>
+<li>Track after the answers from the email sends</li>
+<li>Define a chain of tasks according to the response / non-response of JBIs</li>
+<li>The system should be written in English but know how to send messages in Hebrew as well</li>
+<li>Managing employee permissions in the software</li>
+</ul>
 
 <h2><i>Desired functions:</i></h2>
-•	Processing WORD files for the purpose of validating the employee who wrote the article
-•	Send messages automatically via social networks
-•	Quick app
+<ul>
+<li>Processing WORD files for the purpose of validating the employee who wrote the article</li>
+<li>Send messages automatically via social networks</li>
+<li>Quick app</li>
+</ul>
+
 <h2><i>Milestones for carrying out the project:</i></h2> 
-1. Meeting the time constraints and the extra load that students face.
-2. Close cooperation of team members - weekly progress status meeting.
-3. Perform all steps and submit the documents on time.
+1. Meeting the time constraints and the extra load that students face.</br>
+2. Close cooperation of team members - weekly progress status meeting.</br>
+3. Perform all steps and submit the documents on time.</br>
+
 <h2><i>Elevator statement:</i></h2>
+
 For users of content managers and communications consultants who want to keep in touch with JBIs in a convenient and simple way, the PR-CRM system allows consultants to keep their information in an orderly and clear manner. If until today you did not know how your employees are progressing in front of the reporters and which article was earlier and if you always wanted to send reporters messages that are eye-catching and simple in terms of the JBIs, this is the system for you.
