@@ -21,12 +21,14 @@ Need to do, we have a clear need to build a CRM system that will serve as a home
 Help the PR persons to manage and track there information and interaction with the JBIs.
 
 <h2><i>What will be included in the project:</i></h2>
-•	Information tracking
-•	Sending design and simple content to BJIs 
-•	Schedule tasks with presets
-•	Upload audio, video, files like: jpeg, pdf, word
-•	Record video/audio from the application
-•	Print reports in various sections including graphs
+<ul>
+<li>•	Information tracking</li>
+<li>•	Sending design and simple content to BJIs</li>
+<li>•	Schedule tasks with presets</li>
+<li>•	Upload audio, video, files like: jpeg, pdf, word</li>
+<li>•	Record video/audio from the application</li>
+<li>•	Print reports in various sections including graphs</li>
+  </ul>
 <h2><i>What will be excluded in the project:</i></h2>
 •	Analysis of recurring emails from BJIs
 •	Video and audio editing are uploaded to the app
