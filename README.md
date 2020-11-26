@@ -6,10 +6,10 @@ One of the main goals of the speaker is to compete for the attention of JBIs wit
 These proposals, which in many cases "disappear" and are not read by JBIs, include almost regular content, including offers for interviews and articles, press releases, transmission of information with sensitive and confidential content, invitations to events and press conferences, suggestions for use and so on.</br>
 Therefore, there is a need for a CRM system that will provide a unique solution for marketing managers and PR that will provide a solution for the entire media activity.</br>
 Thus, the main challenges of the speakers and JBIs to which the current answer given is few:
-• Speakers do not have enough time to receive information about current events that they miss the windows for the opportunity to respond and take part in communication activities.</br>
-• Speakers do not have real tools for butterfly and do not have a track of which press releases were opened, which were read, which were clicked on for more information and so on.</br>
-• Press releases / suggestions for coverage / invitations to press conferences, etc. make accessible and require effort and work from JBIs. For example, approval to attend the press conference requires contacting the speaker, registering with him and not a minister that the speaker received the referral.</br>
 <ul>
+<li>Speakers do not have enough time to receive information about current events that they miss the windows for the opportunity to respond and take part in communication activities.</li>
+<li>Speakers do not have real tools for butterfly and do not have a track of which press releases were opened, which were read, which were clicked on for more information and so on.</li>
+<li>Press releases / suggestions for coverage / invitations to press conferences, etc. make accessible and require effort and work from JBIs. For example, approval to attend the press conference requires contacting the speaker, registering with him and not a minister that the speaker received the referral.</li>
 <li>Many messages are sent to journalists in bulk without personalization</li>
 <li>Speakers do not have a track record of contacting reporters</li>
 <li>After the speaker offers an exclusive offer to the reporter, he independently turns to another reporter. This server cannot be simplified or streamlined by having the market automatically forward the exclusive offer to another reporter on the speaker's list.</li>
