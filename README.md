@@ -63,3 +63,7 @@ Help the PR persons to manage and track there information and interaction with t
 <h2><i>Elevator statement:</i></h2>
 
 For users of content managers and communications consultants who want to keep in touch with JBIs in a convenient and simple way, the PR-CRM system allows consultants to keep their information in an orderly and clear manner. If until today you did not know how your employees are progressing in front of the reporters and which article was earlier and if you always wanted to send reporters messages that are eye-catching and simple in terms of the JBIs, this is the system for you.
+
+
+</br></br></br>
+<p>The server side of the project writen in <b>C#</b> and the client side writen in <b>Angular(TypeScript)</b></p>
