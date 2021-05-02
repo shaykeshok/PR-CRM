@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbPrCrmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientCompId" Type="nvarchar" MaxLength="255" />
+          <Property Name="ClientCompName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ServerUserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ServerUserCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="ActTypeCode" Type="int" />
+          <Property Name="ActTypeDesc" Type="nvarchar" MaxLength="255" />
+          <Property Name="ActTime" Type="datetime" />
+          <Property Name="upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ComputerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OutsideIPv4" Type="nvarchar" MaxLength="20" />
+          <Property Name="InsideIPv4" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DbPrCrm.dbo.users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="Moneln" />
+          </Key>
+          <Property Name="Moneln" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="bigint" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DbPrCrmModelStoreContainer">
+          <EntitySet Name="LoginLog" EntityType="Self.LoginLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [users].[Moneln] AS [Moneln], 
+    [users].[Email] AS [Email], 
+    [users].[UserId] AS [UserId], 
+    [users].[Pass] AS [Pass], 
+    [users].[Phone] AS [Phone], 
+    [users].[UserName] AS [UserName]
+    FROM [dbo].[users] AS [users]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbPrCrmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Moneln" />
+          </Key>
+          <Property Name="Moneln" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int64" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="DbPrCrmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="LoginLogs" EntityType="DbPrCrmModel.LoginLog" />
+        </EntityContainer>
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientCompId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ClientCompName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ServerUserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ServerUserCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ActTypeCode" Type="Int32" />
+          <Property Name="ActTypeDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ActTime" Type="DateTime" Precision="3" />
+          <Property Name="upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ComputerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OutsideIPv4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="InsideIPv4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbPrCrmModelStoreContainer" CdmEntityContainer="DbPrCrmEntities">
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="DbPrCrmModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="Moneln" ColumnName="Moneln" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginLogs">
+            <EntityTypeMapping TypeName="DbPrCrmModel.LoginLog">
+              <MappingFragment StoreEntitySet="LoginLog">
+                <ScalarProperty Name="InsideIPv4" ColumnName="InsideIPv4" />
+                <ScalarProperty Name="OutsideIPv4" ColumnName="OutsideIPv4" />
+                <ScalarProperty Name="ComputerName" ColumnName="ComputerName" />
+                <ScalarProperty Name="upsize_ts" ColumnName="upsize_ts" />
+                <ScalarProperty Name="ActTime" ColumnName="ActTime" />
+                <ScalarProperty Name="ActTypeDesc" ColumnName="ActTypeDesc" />
+                <ScalarProperty Name="ActTypeCode" ColumnName="ActTypeCode" />
+                <ScalarProperty Name="ServerUserCode" ColumnName="ServerUserCode" />
+                <ScalarProperty Name="ServerUserName" ColumnName="ServerUserName" />
+                <ScalarProperty Name="ClientCompName" ColumnName="ClientCompName" />
+                <ScalarProperty Name="ClientCompId" ColumnName="ClientCompId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
