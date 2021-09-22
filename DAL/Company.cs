@@ -12,13 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class Company
     {
-        public int Moneln { get; set; }
-        public string Email { get; set; }
-        public long UserId { get; set; }
-        public string Pass { get; set; }
-        public string Phone { get; set; }
-        public string UserName { get; set; }
+        public int CompanyId { get; set; }
+        public byte[] Upsize_ts { get; set; }
+        public string CompanyName { get; set; }
     }
 }

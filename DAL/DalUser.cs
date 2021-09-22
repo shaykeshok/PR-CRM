@@ -28,6 +28,21 @@ namespace DAL
                 {
                     response.rc = 0;
                     response.title = "Login success";
+                    var companies = new List<KeyValuePair<int, string>>();
+
+                    var result = (from usersComp in _context.UsersCompanies
+                                  join comps in _context.Companies
+                                   on new { usersComp.CompanyId }
+                                   equals new { comps.CompanyId }
+                                  where usersComp.UserId == user.Moneln
+                                  select new
+                                  {
+                                      companyId = usersComp.CompanyId,
+                                      companyName = comps.CompanyName
+                                  }).ToList();
+                    result.ForEach(item => companies.Add(new KeyValuePair<int, string>(item.companyId, item.companyName)));
+                    response.user = new UsrWebEntity();
+                    response.user.userCompanies = companies;
                 }
                 else
                 {

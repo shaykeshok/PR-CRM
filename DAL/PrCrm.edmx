@@ -5,6 +5,67 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DbPrCrmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityTitle" Type="nvarchar(max)" />
+          <Property Name="SendingType" Type="int" />
+          <Property Name="Company" Type="int" />
+          <Property Name="PersonalRequest" Type="bit" />
+          <Property Name="PersonalRequestText" Type="nvarchar" MaxLength="50" />
+          <Property Name="MessagesPerPerson" Type="int" />
+          <Property Name="PeriodBetweenSendingType" Type="int" />
+          <Property Name="PeriodBetweenSending" Type="int" />
+          <Property Name="ButtonToStopSend" Type="int" />
+          <Property Name="TrackMail" Type="bit" />
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Button1" Type="nvarchar" MaxLength="50" />
+          <Property Name="Button2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Button3" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ActivityJBI">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="JBIId" />
+          </Key>
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="JBIId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EmailsQueue">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="SendDt" Type="datetime" Nullable="false" />
+          <Property Name="ActivityJBI" Type="int" Nullable="false" />
+          <Property Name="Done" Type="bit" />
+        </EntityType>
+        <EntityType Name="JBI">
+          <Key>
+            <PropertyRef Name="Moneln" />
+          </Key>
+          <Property Name="Moneln" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
+          <Property Name="Linkedin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="int" />
+        </EntityType>
         <EntityType Name="LoginLog">
           <Key>
             <PropertyRef Name="LineId" />
@@ -22,50 +83,87 @@
           <Property Name="OutsideIPv4" Type="nvarchar" MaxLength="20" />
           <Property Name="InsideIPv4" Type="nvarchar" MaxLength="20" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DbPrCrm.dbo.users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar(max)" />
+          <Property Name="RoleDescription" Type="nvarchar(max)" />
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Templates">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+          </Key>
+          <Property Name="TemplateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateName" Type="nvarchar(max)" />
+          <Property Name="TemplateDescription" Type="nvarchar(max)" />
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="TextBoxNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TextBox">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="TextBoxId" />
+          </Key>
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="TextBoxId" Type="int" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="Bold" Type="bit" />
+          <Property Name="FontSize" Type="int" />
+          <Property Name="Color" Type="nvarchar" MaxLength="8" />
+        </EntityType>
         <EntityType Name="users">
           <Key>
-            <PropertyRef Name="Moneln" />
+            <PropertyRef Name="UserId" />
           </Key>
           <Property Name="Moneln" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserId" Type="bigint" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
           <Property Name="Pass" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="UsersCompanies">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Upsize_ts" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="DbPrCrmModelStoreContainer">
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityJBI" EntityType="Self.ActivityJBI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailsQueue" EntityType="Self.EmailsQueue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JBI" EntityType="Self.JBI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginLog" EntityType="Self.LoginLog" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="users" EntityType="Self.users" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [users].[Moneln] AS [Moneln], 
-    [users].[Email] AS [Email], 
-    [users].[UserId] AS [UserId], 
-    [users].[Pass] AS [Pass], 
-    [users].[Phone] AS [Phone], 
-    [users].[UserName] AS [UserName]
-    FROM [dbo].[users] AS [users]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Templates" EntityType="Self.Templates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TextBox" EntityType="Self.TextBox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersCompanies" EntityType="Self.UsersCompanies" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbPrCrmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="user">
-          <Key>
-            <PropertyRef Name="Moneln" />
-          </Key>
-          <Property Name="Moneln" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="Int64" />
-          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="DbPrCrmEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="users" EntityType="Self.user" />
           <EntitySet Name="LoginLogs" EntityType="DbPrCrmModel.LoginLog" />
+          <EntitySet Name="JBIs" EntityType="DbPrCrmModel.JBI" />
+          <EntitySet Name="users" EntityType="DbPrCrmModel.user" />
+          <EntitySet Name="Activities" EntityType="DbPrCrmModel.Activity" />
+          <EntitySet Name="ActivityJBIs" EntityType="DbPrCrmModel.ActivityJBI" />
+          <EntitySet Name="Companies" EntityType="DbPrCrmModel.Company" />
+          <EntitySet Name="Roles" EntityType="DbPrCrmModel.Role" />
+          <EntitySet Name="TextBoxes" EntityType="DbPrCrmModel.TextBox" />
+          <EntitySet Name="UsersCompanies" EntityType="DbPrCrmModel.UsersCompany" />
+          <EntitySet Name="EmailsQueues" EntityType="DbPrCrmModel.EmailsQueue" />
+          <EntitySet Name="Templates" EntityType="DbPrCrmModel.Template" />
         </EntityContainer>
         <EntityType Name="LoginLog">
           <Key>
@@ -84,24 +182,125 @@ warning 6002: The table/view 'DbPrCrm.dbo.users' does not have a primary key def
           <Property Name="OutsideIPv4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="InsideIPv4" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="JBI">
+          <Key>
+            <PropertyRef Name="Moneln" />
+          </Key>
+          <Property Name="Moneln" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Int32" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="Moneln" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SendingType" Type="Int32" />
+          <Property Name="Company" Type="Int32" />
+          <Property Name="PersonalRequest" Type="Boolean" />
+          <Property Name="PersonalRequestText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MessagesPerPerson" Type="Int32" />
+          <Property Name="PeriodBetweenSendingType" Type="Int32" />
+          <Property Name="PeriodBetweenSending" Type="Int32" />
+          <Property Name="ButtonToStopSend" Type="Int32" />
+          <Property Name="TrackMail" Type="Boolean" />
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Button1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Button2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Button3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ActivityJBI">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="JBIId" />
+          </Key>
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="JBIId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoleDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="TextBox">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="TextBoxId" />
+          </Key>
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="TextBoxId" Type="Int32" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bold" Type="Boolean" />
+          <Property Name="FontSize" Type="Int32" />
+          <Property Name="Color" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UsersCompany">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="EmailsQueue">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="SendDt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActivityJBI" Type="Int32" Nullable="false" />
+          <Property Name="Done" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Template">
+          <Key>
+            <PropertyRef Name="TemplateId" />
+          </Key>
+          <Property Name="TemplateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TemplateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="TextBoxNum" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DbPrCrmModelStoreContainer" CdmEntityContainer="DbPrCrmEntities">
-          <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="DbPrCrmModel.user">
-              <MappingFragment StoreEntitySet="users">
-                <ScalarProperty Name="Moneln" ColumnName="Moneln" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Pass" ColumnName="Pass" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LoginLogs">
             <EntityTypeMapping TypeName="DbPrCrmModel.LoginLog">
               <MappingFragment StoreEntitySet="LoginLog">
@@ -117,6 +316,127 @@ warning 6002: The table/view 'DbPrCrm.dbo.users' does not have a primary key def
                 <ScalarProperty Name="ClientCompName" ColumnName="ClientCompName" />
                 <ScalarProperty Name="ClientCompId" ColumnName="ClientCompId" />
                 <ScalarProperty Name="LineId" ColumnName="LineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JBIs">
+            <EntityTypeMapping TypeName="DbPrCrmModel.JBI">
+              <MappingFragment StoreEntitySet="JBI">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Moneln" ColumnName="Moneln" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="DbPrCrmModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Moneln" ColumnName="Moneln" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="DbPrCrmModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="Button3" ColumnName="Button3" />
+                <ScalarProperty Name="Button2" ColumnName="Button2" />
+                <ScalarProperty Name="Button1" ColumnName="Button1" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+                <ScalarProperty Name="TrackMail" ColumnName="TrackMail" />
+                <ScalarProperty Name="ButtonToStopSend" ColumnName="ButtonToStopSend" />
+                <ScalarProperty Name="PeriodBetweenSending" ColumnName="PeriodBetweenSending" />
+                <ScalarProperty Name="PeriodBetweenSendingType" ColumnName="PeriodBetweenSendingType" />
+                <ScalarProperty Name="MessagesPerPerson" ColumnName="MessagesPerPerson" />
+                <ScalarProperty Name="PersonalRequestText" ColumnName="PersonalRequestText" />
+                <ScalarProperty Name="PersonalRequest" ColumnName="PersonalRequest" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="SendingType" ColumnName="SendingType" />
+                <ScalarProperty Name="ActivityTitle" ColumnName="ActivityTitle" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityJBIs">
+            <EntityTypeMapping TypeName="DbPrCrmModel.ActivityJBI">
+              <MappingFragment StoreEntitySet="ActivityJBI">
+                <ScalarProperty Name="JBIId" ColumnName="JBIId" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="DbPrCrmModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DbPrCrmModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TextBoxes">
+            <EntityTypeMapping TypeName="DbPrCrmModel.TextBox">
+              <MappingFragment StoreEntitySet="TextBox">
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="FontSize" ColumnName="FontSize" />
+                <ScalarProperty Name="Bold" ColumnName="Bold" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="TextBoxId" ColumnName="TextBoxId" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersCompanies">
+            <EntityTypeMapping TypeName="DbPrCrmModel.UsersCompany">
+              <MappingFragment StoreEntitySet="UsersCompanies">
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailsQueues">
+            <EntityTypeMapping TypeName="DbPrCrmModel.EmailsQueue">
+              <MappingFragment StoreEntitySet="EmailsQueue">
+                <ScalarProperty Name="Done" ColumnName="Done" />
+                <ScalarProperty Name="ActivityJBI" ColumnName="ActivityJBI" />
+                <ScalarProperty Name="SendDt" ColumnName="SendDt" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Templates">
+            <EntityTypeMapping TypeName="DbPrCrmModel.Template">
+              <MappingFragment StoreEntitySet="Templates">
+                <ScalarProperty Name="TextBoxNum" ColumnName="TextBoxNum" />
+                <ScalarProperty Name="Upsize_ts" ColumnName="Upsize_ts" />
+                <ScalarProperty Name="TemplateDescription" ColumnName="TemplateDescription" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

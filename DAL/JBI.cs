@@ -12,13 +12,15 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class user
+    public partial class JBI
     {
         public int Moneln { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
-        public long UserId { get; set; }
-        public string Pass { get; set; }
+        public string Facebook { get; set; }
+        public string Linkedin { get; set; }
         public string Phone { get; set; }
-        public string UserName { get; set; }
+        public Nullable<int> Role { get; set; }
     }
 }

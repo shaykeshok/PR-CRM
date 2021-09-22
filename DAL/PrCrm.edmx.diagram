@@ -5,8 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="40bb92fa1a7f4ac7acfc518889f74ac1" Name="Diagram1">
-        <EntityTypeShape EntityType="DbPrCrmModel.user" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbPrCrmModel.LoginLog" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.JBI" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.user" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.Activity" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.ActivityJBI" Width="1.5" PointX="3.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.Company" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.Role" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.TextBox" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.UsersCompany" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.EmailsQueue" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.Template" Width="1.5" PointX="5.375" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
