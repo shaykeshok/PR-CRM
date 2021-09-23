@@ -61,6 +61,7 @@
     <Compile Include="PRmanager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JBIManager.cs" />
+    <Compile Include="TrackActivityManager.cs" />
     <Compile Include="UserManager.cs" />
   </ItemGroup>
   <ItemGroup>

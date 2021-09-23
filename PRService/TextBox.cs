@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace PRService
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class EmailsQueue
+    public partial class TextBox
     {
-        public int LineId { get; set; }
+        public byte[] Upsize_ts { get; set; }
         public int ActivityId { get; set; }
-        public System.DateTime SendDt { get; set; }
-        public int ActivityJBI { get; set; }
-        public bool Done { get; set; }
+        public int TextBoxId { get; set; }
+        public string Text { get; set; }
+        public Nullable<bool> Bold { get; set; }
+        public Nullable<int> FontSize { get; set; }
+        public string Color { get; set; }
     }
 }

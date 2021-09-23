@@ -196,7 +196,8 @@ namespace DAL
                             {
                                 ActivityId = activityId,
                                 ActivityJBI = item.JBIId,
-                                SendDt = now
+                                SendDt = now,
+                                Done = false
                             };
                             RowsToInsert.Add(row);
 

@@ -51,7 +51,18 @@
           <Property Name="ActivityId" Type="int" Nullable="false" />
           <Property Name="SendDt" Type="datetime" Nullable="false" />
           <Property Name="ActivityJBI" Type="int" Nullable="false" />
-          <Property Name="Done" Type="bit" />
+          <Property Name="Done" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailsSend">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="SendDt" Type="datetime" Nullable="false" />
+          <Property Name="ActivityJBI" Type="int" Nullable="false" />
+          <Property Name="IsOpen" Type="bit" />
+          <Property Name="ClickedAnswer" Type="int" />
         </EntityType>
         <EntityType Name="JBI">
           <Key>
@@ -140,6 +151,7 @@
           <EntitySet Name="ActivityJBI" EntityType="Self.ActivityJBI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmailsQueue" EntityType="Self.EmailsQueue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailsSend" EntityType="Self.EmailsSend" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JBI" EntityType="Self.JBI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LoginLog" EntityType="Self.LoginLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
@@ -164,6 +176,7 @@
           <EntitySet Name="UsersCompanies" EntityType="DbPrCrmModel.UsersCompany" />
           <EntitySet Name="EmailsQueues" EntityType="DbPrCrmModel.EmailsQueue" />
           <EntitySet Name="Templates" EntityType="DbPrCrmModel.Template" />
+          <EntitySet Name="EmailsSends" EntityType="DbPrCrmModel.EmailsSend" />
         </EntityContainer>
         <EntityType Name="LoginLog">
           <Key>
@@ -283,7 +296,7 @@
           <Property Name="ActivityId" Type="Int32" Nullable="false" />
           <Property Name="SendDt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ActivityJBI" Type="Int32" Nullable="false" />
-          <Property Name="Done" Type="Boolean" />
+          <Property Name="Done" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Template">
           <Key>
@@ -294,6 +307,17 @@
           <Property Name="TemplateDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Upsize_ts" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TextBoxNum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailsSend">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="LineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="SendDt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActivityJBI" Type="Int32" Nullable="false" />
+          <Property Name="IsOpen" Type="Boolean" />
+          <Property Name="ClickedAnswer" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -437,6 +461,18 @@
                 <ScalarProperty Name="TemplateDescription" ColumnName="TemplateDescription" />
                 <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
                 <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailsSends">
+            <EntityTypeMapping TypeName="DbPrCrmModel.EmailsSend">
+              <MappingFragment StoreEntitySet="EmailsSend">
+                <ScalarProperty Name="ClickedAnswer" ColumnName="ClickedAnswer" />
+                <ScalarProperty Name="IsOpen" ColumnName="IsOpen" />
+                <ScalarProperty Name="ActivityJBI" ColumnName="ActivityJBI" />
+                <ScalarProperty Name="SendDt" ColumnName="SendDt" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

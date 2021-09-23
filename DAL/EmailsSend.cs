@@ -12,12 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class EmailsQueue
+    public partial class EmailsSend
     {
         public int LineId { get; set; }
         public int ActivityId { get; set; }
         public System.DateTime SendDt { get; set; }
         public int ActivityJBI { get; set; }
-        public bool Done { get; set; }
+        public Nullable<bool> IsOpen { get; set; }
+        public Nullable<int> ClickedAnswer { get; set; }
     }
 }

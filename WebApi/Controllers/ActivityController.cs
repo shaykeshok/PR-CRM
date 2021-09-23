@@ -8,7 +8,8 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Runtime.InteropServices;
-
+using System.Net.Mail;
+using System.Text;
 
 namespace WebApi.Controllers
 {
@@ -38,7 +39,6 @@ namespace WebApi.Controllers
             }
             return response;
         }
-
 
         // GET: api/Activity
         public ActivitiesListResponse GetActivitiesList(int company = 0, string fromDate = "", string toDate = "")

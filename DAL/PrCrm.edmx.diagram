@@ -16,6 +16,7 @@
         <EntityTypeShape EntityType="DbPrCrmModel.UsersCompany" Width="1.5" PointX="7.75" PointY="3.75" />
         <EntityTypeShape EntityType="DbPrCrmModel.EmailsQueue" Width="1.5" PointX="3.375" PointY="8.75" />
         <EntityTypeShape EntityType="DbPrCrmModel.Template" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DbPrCrmModel.EmailsSend" Width="1.5" PointX="8.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

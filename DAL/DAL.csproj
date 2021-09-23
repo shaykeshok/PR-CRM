@@ -64,8 +64,12 @@
     </Compile>
     <Compile Include="DalActivity.cs" />
     <Compile Include="DalJBI.cs" />
+    <Compile Include="DalTrackActivity.cs" />
     <Compile Include="DalUser.cs" />
     <Compile Include="EmailsQueue.cs">
+      <DependentUpon>PrCrm.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailsSend.cs">
       <DependentUpon>PrCrm.tt</DependentUpon>
     </Compile>
     <Compile Include="JBI.cs">

@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace PRService
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class EmailsQueue
+    public partial class JBI
     {
-        public int LineId { get; set; }
-        public int ActivityId { get; set; }
-        public System.DateTime SendDt { get; set; }
-        public int ActivityJBI { get; set; }
-        public bool Done { get; set; }
+        public int Moneln { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Facebook { get; set; }
+        public string Linkedin { get; set; }
+        public string Phone { get; set; }
+        public Nullable<int> Role { get; set; }
     }
 }

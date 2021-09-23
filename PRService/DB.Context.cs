@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace PRService
 {
     using System;
     using System.Data.Entity;
@@ -25,17 +25,10 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<LoginLog> LoginLogs { get; set; }
-        public virtual DbSet<JBI> JBIs { get; set; }
-        public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<Activity> Activities { get; set; }
-        public virtual DbSet<ActivityJBI> ActivityJBIs { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<TextBox> TextBoxes { get; set; }
-        public virtual DbSet<UsersCompany> UsersCompanies { get; set; }
         public virtual DbSet<EmailsQueue> EmailsQueues { get; set; }
-        public virtual DbSet<Template> Templates { get; set; }
         public virtual DbSet<EmailsSend> EmailsSends { get; set; }
+        public virtual DbSet<JBI> JBIs { get; set; }
+        public virtual DbSet<Activity> Activities { get; set; }
+        public virtual DbSet<TextBox> TextBoxes { get; set; }
     }
 }

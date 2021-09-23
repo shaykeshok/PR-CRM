@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace PRService
 {
     using System;
     using System.Collections.Generic;
